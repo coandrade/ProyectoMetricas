@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "7a3dc0dd-9aaa-496f-808d-6a62471fe004",
+		"name": "Productos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23114185"
+	},
+	"item": [
+		{
+			"name": "Add producto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"wasabi\",\r\n   \"descripcion\": \"Descrpción wasabi\",\r\n   \"historia\": \"Historia wasabi\",\r\n   \"categoria\": \"condimentos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/productos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"productos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add producto",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/productos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"productos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "non est anim",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": 77366666,\n  \"name\": \"sint ut ad\",\n  \"tag\": \"laboris ullamco ad\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all productos in cultura gastronomica",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/productos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"productos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all productos in cultura gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/productos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"productos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "non est anim",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": 77366666,\n  \"name\": \"sint ut ad\",\n  \"tag\": \"laboris ullamco ad\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get one producto in cultura gastronomica",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/productos/{{producto_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"productos",
+						"{{producto_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one producto in cultura gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/productos/{{producto_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"productos",
+								"{{producto_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "non est anim",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": 77366666,\n  \"name\": \"sint ut ad\",\n  \"tag\": \"laboris ullamco ad\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update producto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"wasabi\",\r\n   \"descripcion\": \"Descrpción wasabi\",\r\n   \"historia\": \"Historia wasabi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/producto/{{producto_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"producto",
+						"{{producto_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one producto in cultura gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/producto/{{producto_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"producto",
+								"{{producto_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "non est anim",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": 77366666,\n  \"name\": \"sint ut ad\",\n  \"tag\": \"laboris ullamco ad\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an producto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/productos/{{producto_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"productos",
+						"{{producto_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one producto in cultura gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/producto/{{producto_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"producto",
+								"{{producto_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "non est anim",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": 77366666,\n  \"name\": \"sint ut ad\",\n  \"tag\": \"laboris ullamco ad\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}

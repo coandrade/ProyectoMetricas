@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "d450def6-1cc7-4571-acca-e749cfc672b8",
+		"name": "CulturaGastronomica-Receta tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23114185"
+	},
+	"item": [
+		{
+			"name": "Add Receta to CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"POST request doesn't fail\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas",
+						"{{receta_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Receta CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"DELETE request doesn't fail\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas",
+						"{{receta_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

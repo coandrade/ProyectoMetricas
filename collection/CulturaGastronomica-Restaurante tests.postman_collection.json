@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "1a80f32d-d7c2-4375-9c1a-a01d3d92cd18",
+		"name": "CulturaGastronomica-Restaurante tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23114185"
+	},
+	"item": [
+		{
+			"name": "Add Restaurante to CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"POST request doesn't fail\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/restautantes/{{restaurante_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"restautantes",
+						"{{restaurante_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Restaurante CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"DELETE request doesn't fail\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/restautantes/{{restaurante_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"restautantes",
+						"{{restaurante_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Restaurante CulturaGastronomica Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"DELETE request doesn't fail\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/restautantes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"restautantes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Details about a restaurant All",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/restautantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"restautantes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "dolor eu Excepteur labore",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n       \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n       \"nombre\": \"La florida\",\n       \"ciudad\": \"Bogota\",\n       \"estrellasMichelin\":0\n       \"fechaEstrellasMichelin\" : \"\"\n    },\n        {\n       \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n       \"nombre\": \"El rey del cabrito\",\n       \"ciudad\": \"Monterrey\",\n       \"estrellasMichelin\":0\n       \"fechaEstrellasMichelin\" : \"\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

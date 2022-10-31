@@ -1,0 +1,480 @@
+{
+	"info": {
+		"_postman_id": "35124f92-2983-47e1-a8f1-52c116f2891d",
+		"name": "Recetas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23114965"
+	},
+	"item": [
+		{
+			"name": "Add receta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"Bandeja Paisa 2\",\r\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\",\r\n   \"foto\": \"http://\",\r\n   \"preparacion\": \"xxxxxxx\",\r\n   \"video\": \"http://\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add receta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"recetas"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get all recetas in cultura gastronomica",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all recetas in cultura gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"recetas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "Lorem Excepteur qui",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n   {\n       \"id\": \"28a6bcd5-7f74-4d31-ac70-456d0c520544\",\n       \"nombre\": \"bandeja paisa\",\n       \"description\": \"plato tipico compuestos de frijoles,huevos,chicharron.\",\n       \"foto\": \"https://ruta/fotos/28a6bcd5-7f74-4d31-ac70-456d0c520544/foto.jpg\",\n       \"preparacion\": \"1.huevos,2.galletas,3.Hornear todo\",\n       \"video\": \"https://ruta/videos/28a6bcd5-7f74-4d31-ac70-456d0c520544/video.mp4\"  \n   }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one receta in cultura gastronomica",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas",
+						"{{receta_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one receta in cultura gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"recetas",
+								"{{receta_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get non-existent receta in cultura gastronomica",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get non-existent receta in cultura gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"recetas",
+								"0"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update receta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"Bandeja Paisa2\",\r\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\",\r\n   \"foto\": \"http://\",\r\n   \"preparacion\": \"otra diferente\",\r\n   \"video\": \"http://\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas",
+						"{{receta_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update receta",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"recetas",
+								"{{receta_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete receta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas",
+						"{{receta_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete receta",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/{{receta_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"recetas",
+								"{{receta_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update non-existent receta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}",
+						"recetas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update non-existent receta",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}/recetas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}",
+								"recetas",
+								"0"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}

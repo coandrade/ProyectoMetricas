@@ -1,0 +1,56 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Productos {
+  nombre: String!
+  descripcion: String!
+  historia: String!
+  categoria: String!
+  cultura: CulturaGastronomica!
+}
+
+type Recetas {
+  id: Float!
+  nombre: String!
+  descripcion: String!
+  foto: String!
+  preparacion: String!
+  video: String!
+  cultura: CulturaGastronomica!
+}
+
+type Restaurantes {
+  id: Float!
+  nombre: String!
+  ciudad: String!
+  estrellasMichelin: String!
+  fechaEstrellasMichelin: String!
+  cultura: CulturaGastronomica!
+}
+
+type CulturaGastronomica {
+  id: Float!
+  nombre: String!
+  descripcion: String!
+  recetas: [Recetas!]!
+  productos: [Productos!]!
+  restaurantes: [Restaurantes!]!
+}
+
+type Query {
+  culturas: [CulturaGastronomica!]!
+  cultura(id: Float!): CulturaGastronomica!
+}
+
+type Mutation {
+  createCultura(culturagastronomica: CulturaGastronomicaDTO!): CulturaGastronomica!
+  updateCultura(id: Float!, culturagastronomica: CulturaGastronomicaDTO!): CulturaGastronomica!
+  deleteCultura(id: Float!): String!
+}
+
+input CulturaGastronomicaDTO {
+  id: Float!
+  nombre: String!
+  descripcion: String!
+}

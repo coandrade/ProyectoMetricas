@@ -1,0 +1,700 @@
+{
+	"info": {
+		"_postman_id": "3ad38fd9-de00-4e51-90cc-781cb68f66cc",
+		"name": "CulturaGastronomica tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23114185"
+	},
+	"item": [
+		{
+			"name": "Add CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"cultura_id\", data.id);\r",
+							"tests[\"POST request doesn't fail\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Cultura gastronómica Colombiana\",\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add CulturasGastronomicas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/culturasgastronomicas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-next",
+							"value": "off",
+							"description": "A link to the next page of responses"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n   \"nombre\": \"Cultura gastronómica Colombiana\",\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a invalid CulturaGastronomica",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Cultura gastronómica Colombiana\",\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a invalid CulturaGastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/culturasgastronomicas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas"
+							]
+						}
+					},
+					"status": "Request-URI Too Long",
+					"code": 414,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 414,\n  \"message\": \"La cultura gastronómica ya existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all CulturasGastronomicas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data= JSON.parse(responseBody);\r",
+							"tests[\"GET request doesn't fail\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all CulturasGastronomicas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    {\r\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"nombre\": \"Cultura gastronómica Colombiana\",\r\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\",\r\n   \"pais\": \"colombia\",\r\n   \"recetas\": [\r\n    {\r\n\t  \"id\": \"1\",\r\n\t  \"nombre\": \"Espaguetis carbonara receta tradicional\",\r\n\t  \"descripcion\": \"Los espaguetis a la carbonara es probablemente la forma más internacional de preparar esta pasta. La auténtica salsa carbonara de italia contiene yema de huevo, queso y bacon. No tiene nata, ingrediente que le solemos añadir en España. Incluso hay muchas versiones que tan solo contienen nata. Puedes hacerla así, si quieres pero aquí, haremos unos espaguetis a la carbonara auténticos.\",\r\n\t  \"foto\":\"https://www.cocinacaserayfacil.net/wp-content/uploads/2021/11/Espagueti-a-la-carbonara.jpg\",\r\n\t  \"preparacion\": \"1. Ponemos un puñadito de sal (generoso) en abundante agua hirviendo. Después añadimos los espagueti y los dejamos cocer aquí alrededor de 10 minutos. hasta que estén al «dente». Conviene removerlos con frecuencia sobre todo al principio de la cocción, para que no se peguen.\\n2.Mientras se cuecen preparamos la carbonara. En un bol añadimos las yemas de los huevos. La clara es mejor guardarla para otra elaboración ya que, si la añadimos, parecerá más una tortilla de espaguetis, que una salsa en sí. Pero si no te importa, puedes añadirla. Añadimos también el queso rallado y mezclamos ambos ingredientes con un tenedor. Quedará una especie de masa muy densa y ésta, será la carbonara.\\n3.En una sartén ponemos un pequeño chorrito de aceite. Cuando esté bien caliente, añadimos el bacon o la panceta, cortado en dados más bien pequeños. Pasados un par de minutos, cuando estén fritos, retiramos del fuego y reservamos\",\r\n\t  \"video\": \"https://www.youtube.com/watch?v=OIs9tgALGNU\"\r\n\t}\r\n   ],\r\n   \"restaurantes\": [\r\n\t{\r\n\t  \"id\": \"1\",\r\n\t  \"nombre\": \"El Cielo\",\r\n\t  \"estrellasMichelin\": null,\r\n\t  \"fechaEstrellasMichelín\" : null\r\n\t}\r\n   ],\r\n   \"productos\": [\r\n    {\r\n\t  \"id\": \"1\",\r\n\t  \"nombre\": \"Maíz dulce\",\r\n\t  \"descripcion\": \"El grano del maíz dulce es el resultado de una mutación en los genes que controlan la conversión del azúcar en almidón en el endosperma (tejido de reserva). Las mazorcas de maíz dulce son cosechadas en una etapa precoz de su crecimiento (estadio lechoso).\",\r\n\t  \"historia\": \"El maíz dulce fue una mutación espontánea del maíz de campo silvestre y cultivado por varias naciones amerindias. Los iroquéses tuvieron el primer maíz dulce registrado (llamado Papoon) a los colonos europeos en 1779.2​ Y prontamente fue un popular cereal en las regiones sur y centrales de EE. UU.\",\r\n\t  \"categoria\":\"cereal\"\r\n\t}\r\n   ]\r\n}\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"tests[\"GET request doesn't fail\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one CulturaGastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"nombre\": \"Cultura gastronómica Colombiana\",\n    \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\",\n    \"pais\": \"colombia\",\n    \"recetas\": [\n        {\n            \"id\": \"1\",\n            \"nombre\": \"Espaguetis carbonara receta tradicional\",\n            \"descripcion\": \"Los espaguetis a la carbonara es probablemente la forma más internacional de preparar esta pasta. La auténtica salsa carbonara de italia contiene yema de huevo, queso y bacon. No tiene nata, ingrediente que le solemos añadir en España. Incluso hay muchas versiones que tan solo contienen nata. Puedes hacerla así, si quieres pero aquí, haremos unos espaguetis a la carbonara auténticos.\",\n            \"foto\": \"https://www.cocinacaserayfacil.net/wp-content/uploads/2021/11/Espagueti-a-la-carbonara.jpg\",\n            \"preparacion\": \"1. Ponemos un puñadito de sal (generoso) en abundante agua hirviendo. Después añadimos los espagueti y los dejamos cocer aquí alrededor de 10 minutos. hasta que estén al «dente». Conviene removerlos con frecuencia sobre todo al principio de la cocción, para que no se peguen.\\n2.Mientras se cuecen preparamos la carbonara. En un bol añadimos las yemas de los huevos. La clara es mejor guardarla para otra elaboración ya que, si la añadimos, parecerá más una tortilla de espaguetis, que una salsa en sí. Pero si no te importa, puedes añadirla. Añadimos también el queso rallado y mezclamos ambos ingredientes con un tenedor. Quedará una especie de masa muy densa y ésta, será la carbonara.\\n3.En una sartén ponemos un pequeño chorrito de aceite. Cuando esté bien caliente, añadimos el bacon o la panceta, cortado en dados más bien pequeños. Pasados un par de minutos, cuando estén fritos, retiramos del fuego y reservamos\",\n            \"video\": \"https://www.youtube.com/watch?v=OIs9tgALGNU\"\n        }\n    ],\n    \"restaurantes\": [\n        {\n            \"id\": \"1\",\n            \"nombre\": \"El Cielo\",\n            \"estrellasMichelin\": null,\n            \"fechaEstrellasMichelín\": null\n        }\n    ],\n    \"productos\": [\n        {\n            \"id\": \"1\",\n            \"nombre\": \"Maíz dulce\",\n            \"descripcion\": \"El grano del maíz dulce es el resultado de una mutación en los genes que controlan la conversión del azúcar en almidón en el endosperma (tejido de reserva). Las mazorcas de maíz dulce son cosechadas en una etapa precoz de su crecimiento (estadio lechoso).\",\n            \"historia\": \"El maíz dulce fue una mutación espontánea del maíz de campo silvestre y cultivado por varias naciones amerindias. Los iroquéses tuvieron el primer maíz dulce registrado (llamado Papoon) a los colonos europeos en 1779.2​ Y prontamente fue un popular cereal en las regiones sur y centrales de EE. UU.\",\n            \"categoria\": \"cereal\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a non-existent CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Entity with requested ID exists\"] = responseCode.code === 404; \r",
+							"tests[\"Correct error message\"] = responseBody.has(\"La cultura gastronómica no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a non-existent CulturaGastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La cultura gastronómica no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"tests[\"PUT request doesn't fail\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"nombre\": \"Cultura gastronómica Colombiana\",\r\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a CulturaGastronomica",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"nombre\": \"Cultura gastronómica Colombiana\",\n    \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a non-existent CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Entity with requested ID exists\"] = responseCode.code === 404; \r",
+							"tests[\"Correct error message\"] = responseBody.has(\"La cultura gastronómica no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"nombre\": \"Cultura gastronómica Colombiana\",\r\n   \"descripcion\": \"Son tradicionales platillos el pastel de garbanzo, el arroz con pollo, el arroz con carne, el arroz de arveja y el arroz de yuca. También lo es el mute, sopa preparada con carne de cerdo, maíz, papa y garbanzos, servida con arroz y pasteles de garbanzo.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a non-existent CulturaGastronomica",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La cultura gastronómica no existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a cultura gastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"DELETE request doesn't fail\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"{{cultura_gastronomica_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a CulturaGastronomica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/{{cultura_gastronomica_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"{{cultura_gastronomica_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 204,\r\n    \"message\": \"La cultura gastronómica fue eliminada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a non-existent CulturaGastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Entity with requested ID exists\"] = responseCode.code === 404; \r",
+							"tests[\"Correct error message\"] = responseBody.has(\"La cultura gastronómica no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturasgastronomicas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a non-existent CulturaGastronomica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/culturasgastronomicas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"culturasgastronomicas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La cultura gastronómica no existe\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
